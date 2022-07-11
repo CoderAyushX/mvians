@@ -1,0 +1,23 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class MyTheme {
+  //* static function for app theme
+  static ThemeData lightTheme(BuildContext context) {
+    return ThemeData(
+        //* primary theme
+        primarySwatch: Colors.red,
+        fontFamily: GoogleFonts.lato().fontFamily,
+        //* text theme
+        textTheme: const TextTheme(bodyText2: TextStyle(color:Color(0xFFE5E5E5))),
+        //*appbar theme
+        appBarTheme: const AppBarTheme(
+            color: Color.fromRGBO(8, 32, 50, 1),
+            elevation: 0.0,
+            iconTheme: IconThemeData(color: Colors.white70),
+            titleTextStyle: TextStyle(
+                color: Colors.white70,
+                fontWeight: FontWeight.bold,
+                fontSize: 18)));
+  }
+}
