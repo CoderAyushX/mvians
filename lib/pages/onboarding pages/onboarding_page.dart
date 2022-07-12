@@ -59,51 +59,54 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   }),
                 ),
               ),
-              Row(
-                children: [
-                  ...List.generate(
-                      onBoardData.length,
-                      (index) => Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: DotIndicator(
-                              isActive: index == _pageIndex,
-                            ),
-                          )),
-                  const Spacer(),
+              Padding(
+                padding:  EdgeInsets.only(right: Dimensions.width20, bottom: Dimensions.height15),
+                child: Row(
+                  children: [
+                    ...List.generate(
+                        onBoardData.length,
+                        (index) => Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: DotIndicator(
+                                isActive: index == _pageIndex,
+                              ),
+                            )),
+                    const Spacer(),
 
-                  //* next button
-                  _pageIndex != 2
-                      ? SizedBox(
-                          height: Dimensions.height30 * 2,
-                          width: Dimensions.height30 * 2,
-                          child: ElevatedButton(
-                              onPressed: (() {
-                                _pageController.nextPage(
-                                    duration: const Duration(milliseconds: 300),
-                                    curve: Curves.ease);
-                              }),
-                              style: ElevatedButton.styleFrom(
-                                  shape: const CircleBorder()),
-                              child: Icon(
-                                CupertinoIcons.arrow_right,
-                                color: AppColors.whiteColor,
-                              )),
-                        )
-                      : SizedBox(
-                          height: Dimensions.height30 * 2,
-                          width: Dimensions.height30 * 2,
-                          child: ElevatedButton(
-                              onPressed: (() {
-                                Get.toNamed("/welcome");
-                              }),
-                              style: ElevatedButton.styleFrom(
-                                  shape: const CircleBorder()),
-                              child: Icon(
-                                CupertinoIcons.arrow_right,
-                                color: AppColors.whiteColor,
-                              )),
-                        )
-                ],
+                    //* next button
+                    _pageIndex != 2
+                        ? SizedBox(
+                            height: Dimensions.height30 * 2,
+                            width: Dimensions.height30 * 2,
+                            child: ElevatedButton(
+                                onPressed: (() {
+                                  _pageController.nextPage(
+                                      duration: const Duration(milliseconds: 300),
+                                      curve: Curves.ease);
+                                }),
+                                style: ElevatedButton.styleFrom(
+                                    shape: const CircleBorder()),
+                                child: Icon(
+                                  CupertinoIcons.arrow_right,
+                                  color: AppColors.whiteColor,
+                                )),
+                          )
+                        : SizedBox(
+                            height: Dimensions.height30 * 2,
+                            width: Dimensions.height30 * 2,
+                            child: ElevatedButton(
+                                onPressed: (() {
+                                  Get.toNamed("/comauth");
+                                }),
+                                style: ElevatedButton.styleFrom(
+                                    shape: const CircleBorder()),
+                                child: Icon(
+                                  CupertinoIcons.arrow_right,
+                                  color: AppColors.whiteColor,
+                                )),
+                          )
+                  ],
+                ),
               ),
             ],
           ),

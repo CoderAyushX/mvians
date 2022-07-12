@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:mvians/utils/colors.dart';
 import 'package:mvians/utils/dimensions.dart';
-import 'package:mvians/widgets/bigtext.dart';
 import 'package:mvians/widgets/smalltext.dart';
 
 class OnBoardingWelcome extends StatelessWidget {
