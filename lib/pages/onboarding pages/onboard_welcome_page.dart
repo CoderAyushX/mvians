@@ -33,16 +33,13 @@ class OnBoardingWelcome extends StatelessWidget {
             //? bottam sheet
             Positioned(
               top: Dimensions.height150 * 3,
-              right: 0,
-              left: 0,
-              bottom: 0,
+              right: Dimensions.width10,
+              left:Dimensions.width10 ,
+              bottom: Dimensions.height10,
               child: Container(
                 padding: const EdgeInsets.all(15.0),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(Dimensions.radius30),
-                    topRight: Radius.circular(Dimensions.radius30),
-                  ),
+                  borderRadius: BorderRadius.circular(Dimensions.radius15),
                   color: AppColors.lightDarkColor,
                 ),
                 child: Column(

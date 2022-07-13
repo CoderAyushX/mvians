@@ -13,6 +13,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
   late TextEditingController _textcontroller;
   late TextEditingController _passController;
   late bool _passwordVisible;
@@ -39,147 +40,155 @@ class _LoginPageState extends State<LoginPage> {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    //? back button
-                    InkWell(
-                      borderRadius: BorderRadius.circular(Dimensions.radius15),
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: Container(
-                        padding: EdgeInsets.all(Dimensions.height10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.white.withOpacity(0.7), width: .8),
-                          borderRadius:
-                              BorderRadius.circular(Dimensions.radius15),
-                        ),
-
-                        //? back icon
-                        child: Icon(
-                          Icons.arrow_back_ios_new_rounded,
-                          color: AppColors.whiteColor,
-                          size: Dimensions.iconSize24 * 1.2,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: Dimensions.width45 * 1.2,
-                    ),
-                    //? page header
-                    BigText(
-                      text: "Log in",
-                      size: Dimensions.font16 * 2,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: Dimensions.height30,
-                ),
-                Align(
-                    alignment: Alignment.center,
-                    child: Image.asset(
-                      "assets/images/login.png",
-                      height: Dimensions.height150 * 1.6,
-                    )),
-
-                //? first input
-                BigText(
-                  text: "Email",
-                  size: Dimensions.font22,
-                  fontWeight: FontWeight.bold,
-                ),
-                SizedBox(
-                  height: Dimensions.height10,
-                ),
-                emailWidget(
-                  RegExp(
-                      r"^((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)"),
-                ),
-                //? gap
-                SizedBox(
-                  height: Dimensions.height20,
-                ),
-                //? second input
-
-                BigText(
-                  text: "Password",
-                  size: Dimensions.font22,
-                  fontWeight: FontWeight.bold,
-                ),
-                SizedBox(
-                  height: Dimensions.height10,
-                ),
-
-                passWidget(),
-                //? forgot button
-                Align(
-                  alignment: Alignment.topRight,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: BigText(
-                      text: "Forgot password?",
-                      color: AppColors.redColor,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: Dimensions.height10,
-                ),
-                //? button
-                InkWell(
-                  borderRadius: BorderRadius.circular(Dimensions.radius30),
-                  onTap: () {},
-                  child: Container(
-                    height: Dimensions.height45 * 1.25,
-                    width: Dimensions.screenWidth - 10,
-                    decoration: BoxDecoration(
-                        color: AppColors.redColor,
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      //? back button
+                      InkWell(
                         borderRadius:
-                            BorderRadius.circular(Dimensions.radius30)),
-                    child: Center(
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
+                            BorderRadius.circular(Dimensions.radius15),
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(Dimensions.height10),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.white.withOpacity(0.7),
+                                width: .8),
+                            borderRadius:
+                                BorderRadius.circular(Dimensions.radius15),
+                          ),
+
+                          //? back icon
+                          child: Icon(
+                            Icons.arrow_back_ios_new_rounded,
                             color: AppColors.whiteColor,
-                            fontSize: Dimensions.font26,
-                            fontWeight: FontWeight.bold),
+                            size: Dimensions.iconSize24 * 1.2,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: Dimensions.width45 * 1.2,
+                      ),
+                      //? page header
+                      BigText(
+                        text: "Log in",
+                        size: Dimensions.font16 * 2,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: Dimensions.height30,
+                  ),
+                  Align(
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        "assets/images/login.png",
+                        height: Dimensions.height150 * 1.6,
+                      )),
+
+                  //? first input
+                  BigText(
+                    text: "Email",
+                    size: Dimensions.font22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  SizedBox(
+                    height: Dimensions.height10,
+                  ),
+                  emailWidget(
+                    RegExp(r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"),
+                  ),
+                  //? gap
+                  SizedBox(
+                    height: Dimensions.height20,
+                  ),
+                  //? second input
+
+                  BigText(
+                    text: "Password",
+                    size: Dimensions.font22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  SizedBox(
+                    height: Dimensions.height10,
+                  ),
+
+                  passWidget(),
+                  //? forgot button
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: BigText(
+                        text: "Forgot password?",
+                        color: AppColors.redColor,
                       ),
                     ),
                   ),
-                ),
-
-                SizedBox(
-                  height: Dimensions.height35,
-                ),
-                //? to sigin page
-                Align(
-                  alignment: Alignment.center,
-                  child: RichText(
-                    text: TextSpan(
-                      text: 'Don\' have a account?',
-                      style: TextStyle(
-                          fontSize: Dimensions.font18,
-                          color: AppColors.whiteColor),
-                      children: [
-                        TextSpan(
-                            text: 'Register',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.redColor),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () => Get.toNamed("/signin")),
-                      ],
+                  SizedBox(
+                    height: Dimensions.height10,
+                  ),
+                  //? button
+                  InkWell(
+                    onTap: () {
+                      if (_formKey.currentState!.validate()) {
+                        Get.offNamed("/welcome");
+                      }
+                    },
+                    borderRadius: BorderRadius.circular(Dimensions.radius30),
+                    child: Ink(
+                      height: Dimensions.height45 * 1.25,
+                      width: Dimensions.screenWidth - 10,
+                      decoration: BoxDecoration(
+                          color: AppColors.redColor,
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius30)),
+                      child: Center(
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                              color: AppColors.whiteColor,
+                              fontSize: Dimensions.font26,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ],
+
+                  SizedBox(
+                    height: Dimensions.height35,
+                  ),
+                  //? to sigin page
+                  Align(
+                    alignment: Alignment.center,
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'Don\' have a account?',
+                        style: TextStyle(
+                            fontSize: Dimensions.font18,
+                            color: AppColors.whiteColor),
+                        children: [
+                          TextSpan(
+                              text: 'Register',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.redColor),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () => Get.toNamed("/signin")),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -242,7 +251,7 @@ class _LoginPageState extends State<LoginPage> {
       //? validating user input
       validator: (value) {
         if (value!.isEmpty || !regExp.hasMatch(value)) {
-          return "Enter Something!";
+          return "Enter a correct email!";
         } else {
           return null;
         }
@@ -269,6 +278,18 @@ class _LoginPageState extends State<LoginPage> {
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: const BorderSide(
             color: Colors.white,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(Dimensions.radius15),
+          borderSide: BorderSide(
+            color: AppColors.redColor,
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(Dimensions.radius15),
+          borderSide: BorderSide(
+            color: AppColors.redColor,
           ),
         ),
         border: const UnderlineInputBorder(

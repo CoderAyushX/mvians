@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1022638358482",
+    "project_id": "mvians-acc6b",
+    "storage_bucket": "mvians-acc6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022638358482:android:a8c32bb45812215f62520b",
+        "android_client_info": {
+          "package_name": "com.mananvidya.mvians"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1022638358482-l30c865mpb9slfdu9k7gg4t5ce48naao.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTs90VYA8ACQBq9LJhdmiA9_Uq_wWPSa0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1022638358482-l30c865mpb9slfdu9k7gg4t5ce48naao.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
