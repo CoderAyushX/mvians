@@ -96,7 +96,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             width: Dimensions.height30 * 2,
                             child: ElevatedButton(
                                 onPressed: (() {
-                                  Get.offAllNamed("/comauth");
+                                  Get.offAllNamed("/welcome");
                                 }),
                                 style: ElevatedButton.styleFrom(
                                     shape: const CircleBorder()),

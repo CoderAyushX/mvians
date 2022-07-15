@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mvians/controller/auth/auth_controller.dart';
 import 'package:mvians/utils/colors.dart';
 import 'package:mvians/utils/dimensions.dart';
 import 'package:mvians/widgets/bigtext.dart';
 import 'package:flutter/gestures.dart';
+import 'package:mvians/widgets/singupinWidgets/backbutton_text.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   late TextEditingController _textcontroller;
   late TextEditingController _passController;
   late bool _passwordVisible;
+
   @override
   void initState() {
     _textcontroller = TextEditingController();
@@ -45,45 +48,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      //? back button
-                      InkWell(
-                        borderRadius:
-                            BorderRadius.circular(Dimensions.radius15),
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(Dimensions.height10),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Colors.white.withOpacity(0.7),
-                                width: .8),
-                            borderRadius:
-                                BorderRadius.circular(Dimensions.radius15),
-                          ),
-
-                          //? back icon
-                          child: Icon(
-                            Icons.arrow_back_ios_new_rounded,
-                            color: AppColors.whiteColor,
-                            size: Dimensions.iconSize24 * 1.2,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: Dimensions.width45 * 1.2,
-                      ),
-                      //? page header
-                      BigText(
-                        text: "Log in",
-                        size: Dimensions.font16 * 2,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                      ),
-                    ],
-                  ),
+                   BackButtonForAuth(text: "Log in", size: Dimensions.font16 * 2),
                   SizedBox(
                     height: Dimensions.height30,
                   ),
@@ -126,7 +91,9 @@ class _LoginPageState extends State<LoginPage> {
                   Align(
                     alignment: Alignment.topRight,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed("/forgotPass");
+                      },
                       child: BigText(
                         text: "Forgot password?",
                         color: AppColors.redColor,
@@ -140,7 +107,10 @@ class _LoginPageState extends State<LoginPage> {
                   InkWell(
                     onTap: () {
                       if (_formKey.currentState!.validate()) {
-                        Get.offNamed("/welcome");
+                        AuthController.instance.login(
+                          _textcontroller.text.trim(),
+                          _passController.text.trim(),
+                        );
                       }
                     },
                     borderRadius: BorderRadius.circular(Dimensions.radius30),
@@ -151,15 +121,37 @@ class _LoginPageState extends State<LoginPage> {
                           color: AppColors.redColor,
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius30)),
-                      child: Center(
-                        child: Text(
-                          "Login",
-                          style: TextStyle(
-                              color: AppColors.whiteColor,
-                              fontSize: Dimensions.font26,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                      child: Obx(() {
+                        return Center(
+                          child: AuthController.instance.isNotLoding.value
+                              ? Text(
+                                  "Login",
+                                  style: TextStyle(
+                                      color: AppColors.whiteColor,
+                                      fontSize: Dimensions.font26,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              : Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                      SizedBox(
+                                        height: Dimensions.height30,
+                                        width: Dimensions.height30,
+                                        child: CircularProgressIndicator(
+                                            color: AppColors.whiteColor),
+                                      ),
+                                      SizedBox(width: Dimensions.width20),
+                                      Text(
+                                        "Please wait",
+                                        style: TextStyle(
+                                          color: AppColors.whiteColor,
+                                          fontSize: Dimensions.font26,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )
+                                    ]),
+                        );
+                      }),
                     ),
                   ),
 

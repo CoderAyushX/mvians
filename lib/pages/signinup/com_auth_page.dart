@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:mvians/controller/auth/auth_controller.dart';
 import 'package:mvians/utils/colors.dart';
 import 'package:mvians/utils/dimensions.dart';
 import 'package:mvians/widgets/bigtext.dart';
@@ -55,7 +56,7 @@ class ComAuthPage extends StatelessWidget {
 
                         const Spacer(),
                         //? email button
-                        ContinueButtons(
+                        EmailContinueButtons(
                           color: AppColors.redColor,
                           text: "Continue With Email",
                           textColor: AppColors.whiteColor,
@@ -71,14 +72,13 @@ class ComAuthPage extends StatelessWidget {
                         ),
 
                         //? google button
-                        ContinueButtons(
+                        GoogleContinueButtons(
                           color: AppColors.whiteColor,
                           text: "Continue With Google",
                           textColor: AppColors.lightDarkColor,
                           icon: Icon(FontAwesomeIcons.google,
                               size: Dimensions.iconSize24 * 1.2,
                               color: AppColors.lightDarkColor),
-                          nav: "/login",
                         ),
                         const Spacer(),
                       ],
@@ -94,8 +94,8 @@ class ComAuthPage extends StatelessWidget {
   }
 }
 
-class ContinueButtons extends StatelessWidget {
-  const ContinueButtons(
+class EmailContinueButtons extends StatelessWidget {
+  const EmailContinueButtons(
       {Key? key,
       required this.color,
       required this.text,
@@ -121,11 +121,62 @@ class ContinueButtons extends StatelessWidget {
           Get.toNamed(nav);
         }),
         style: ElevatedButton.styleFrom(
-            primary: color,
-            textStyle: TextStyle(
-              fontSize: Dimensions.font26,
-              fontWeight: FontWeight.bold,
-            ),),
+          primary: color,
+          textStyle: TextStyle(
+            fontSize: Dimensions.font26,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            icon,
+            SizedBox(
+              width: Dimensions.width20,
+            ),
+            Text(
+              text,
+              style: TextStyle(color: textColor),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class GoogleContinueButtons extends StatelessWidget {
+  const GoogleContinueButtons({
+    Key? key,
+    required this.color,
+    required this.text,
+    required this.textColor,
+    required this.icon,
+  }) : super(key: key);
+
+  //? getting datas
+  final Color color;
+  final Color textColor;
+  final String text;
+  final Icon icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: Dimensions.height45 * 1.25,
+      width: Dimensions.screenWidth - 10,
+      child: ElevatedButton(
+        //? method
+        onPressed: (() {
+          AuthController.instance.signInWithGoogle();
+        }),
+        style: ElevatedButton.styleFrom(
+          primary: color,
+          textStyle: TextStyle(
+            fontSize: Dimensions.font26,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

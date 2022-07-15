@@ -1,9 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mvians/controller/auth/auth_controller.dart';
 import 'package:mvians/utils/colors.dart';
 import 'package:mvians/utils/dimensions.dart';
 import 'package:mvians/widgets/bigtext.dart';
+import 'package:mvians/widgets/singupinWidgets/backbutton_text.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -47,45 +49,8 @@ class _SignInPageState extends State<SignInPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      //? back button
-                      InkWell(
-                        borderRadius:
-                            BorderRadius.circular(Dimensions.radius15),
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: Container(
-                          padding: EdgeInsets.all(Dimensions.height10),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Colors.white.withOpacity(0.7),
-                                width: .8),
-                            borderRadius:
-                                BorderRadius.circular(Dimensions.radius15),
-                          ),
-
-                          //? back icon
-                          child: Icon(
-                            Icons.arrow_back_ios_new_rounded,
-                            color: AppColors.whiteColor,
-                            size: Dimensions.iconSize24 * 1.2,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: Dimensions.width45 * 1.2,
-                      ),
-                      //? page header
-                      BigText(
-                        text: "Sign in",
-                        size: Dimensions.font16 * 2,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                      ),
-                    ],
-                  ),
+               BackButtonForAuth(text: "Sign in", size: Dimensions.font16 * 2),
+             
                   SizedBox(
                     height: Dimensions.height30,
                   ),
@@ -148,9 +113,12 @@ class _SignInPageState extends State<SignInPage> {
                   //? button
                   InkWell(
                     borderRadius: BorderRadius.circular(Dimensions.radius30),
-                    onTap: () {
+                    onTap: () async{
                       if (_formKey.currentState!.validate()) {
-                        Get.offNamed("/welcome");
+                        AuthController.instance.register(
+                            _textcontroller.text.trim(),
+                            _passController.text.trim());
+                       
                       }
                     },
                     child: Ink(
@@ -160,15 +128,38 @@ class _SignInPageState extends State<SignInPage> {
                           color: AppColors.redColor,
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius30)),
-                      child: Center(
-                        child: Text(
-                          "Sign In",
-                          style: TextStyle(
-                              color: AppColors.whiteColor,
-                              fontSize: Dimensions.font26,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                      child: Obx(() {
+                          return Center(
+                            child: AuthController.instance.isNotLoding.value
+                                ? Text(
+                                    "Sign in",
+                                    style: TextStyle(
+                                        color: AppColors.whiteColor,
+                                        fontSize: Dimensions.font26,
+                                        fontWeight: FontWeight.bold),
+                                  )
+                                : Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        height: Dimensions.height30 ,
+                                        width:Dimensions.height30,
+                                        child: CircularProgressIndicator(
+                                            color: AppColors.whiteColor),
+                                      ),
+                                      SizedBox(width: Dimensions.width20),
+                                      Text(
+                                        "Please wait",
+                                        style: TextStyle(
+                                          color: AppColors.whiteColor,
+                                          fontSize: Dimensions.font26,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      )
+                                    ]),
+                          );
+                        }),
                     ),
                   ),
 
@@ -212,6 +203,13 @@ class _SignInPageState extends State<SignInPage> {
       controller: controller,
       obscureText: !_passwordVisible,
       style: const TextStyle(color: Colors.white),
+      validator: (value) {
+        if (value!.isEmpty || value.length < 6) {
+          return "minimum 6 character";
+        } else {
+          return null;
+        }
+      },
       decoration: InputDecoration(
         prefixIcon: Icon(
           Icons.security_outlined,
@@ -244,6 +242,18 @@ class _SignInPageState extends State<SignInPage> {
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: const BorderSide(
             color: Colors.white,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(Dimensions.radius15),
+          borderSide: BorderSide(
+            color: AppColors.redColor,
+          ),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(Dimensions.radius15),
+          borderSide: BorderSide(
+            color: AppColors.redColor,
           ),
         ),
         border: const UnderlineInputBorder(

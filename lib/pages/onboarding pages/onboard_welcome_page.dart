@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mvians/utils/colors.dart';
 import 'package:mvians/utils/dimensions.dart';
 import 'package:mvians/widgets/smalltext.dart';
@@ -33,9 +34,9 @@ class OnBoardingWelcome extends StatelessWidget {
             //? bottam sheet
             Positioned(
               top: Dimensions.height150 * 3,
-              right: Dimensions.width10,
-              left:Dimensions.width10 ,
-              bottom: Dimensions.height10,
+              right: Dimensions.width30,
+              left: Dimensions.width30,
+              bottom: Dimensions.height30,
               child: Container(
                 padding: const EdgeInsets.all(15.0),
                 decoration: BoxDecoration(
@@ -46,7 +47,7 @@ class OnBoardingWelcome extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                              margin: const EdgeInsets.only(top: 25.0),
+                      margin: const EdgeInsets.only(top: 25.0),
                       child: RichText(
                         text: TextSpan(
                           text: 'Connect With \nSchool With Our App for ',
@@ -55,16 +56,17 @@ class OnBoardingWelcome extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                             color: AppColors.redColor,
                           ),
-                          children:  [
+                          children: [
                             TextSpan(
                                 text: 'free!',
-                                style: TextStyle(fontWeight: FontWeight.w700, color: AppColors.whiteColor)),
-                
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    color: AppColors.whiteColor)),
                           ],
                         ),
                       ),
                     ),
-                 
+
                     SizedBox(
                       height: Dimensions.height15,
                     ),
@@ -81,7 +83,9 @@ class OnBoardingWelcome extends StatelessWidget {
                       height: Dimensions.height45 * 1.5,
                       child: ElevatedButton(
                         //? method
-                        onPressed: (() {}),
+                        onPressed: (() {
+                          Get.toNamed("/comauth");
+                        }),
                         style: ElevatedButton.styleFrom(
                             primary: AppColors.redColor,
                             textStyle: TextStyle(
