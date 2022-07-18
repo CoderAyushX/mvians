@@ -1,6 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:mvians/controller/auth/auth_controller.dart';
+import 'package:mvians/pages/screens/explore_page.dart';
+import 'package:mvians/pages/screens/home_page.dart';
+import 'package:mvians/pages/screens/rankers_page.dart';
+import 'package:mvians/pages/screens/setting_page.dart';
 
 import 'package:mvians/utils/colors.dart';
 
@@ -20,60 +24,56 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  final List pages = [
+    const MainHomePage(),
+    const ExplorePage(),
+    const RankerPage(),
+    const SettingPage()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.bgColor,
-
-        //? bottam nav bar
-        bottomNavigationBar: Container(
-          color: Colors.black,
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 14.0, vertical: 12.0),
-            child: GNav(
-              gap: 8,
-              onTabChange: (index) {
-                _onItemTapped(index);
-              },
-              backgroundColor: Colors.black,
-              color: AppColors.whiteColor,
-              activeColor: AppColors.whiteColor,
-              tabBackgroundColor: Colors.grey.shade900,
-              padding: const EdgeInsets.all(8.0),
-              rippleColor: Colors.grey.shade800,
-              tabs: const [
-                GButton(
-                  icon: Icons.home,
-                  text: "Home",
-                ),
-                GButton(
-                  icon: Icons.search,
-                  text: "Search",
-                ),
-                GButton(
-                  icon: Icons.explore,
-                  text: "Explore",
-                ),
-                GButton(
-                  icon: Icons.settings,
-                  text: "Setting",
-                ),
-              ],
-            ),
+      backgroundColor: AppColors.bgColor,
+      //? bottam nav bar
+      bottomNavigationBar: Container(
+        color: Colors.black,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
+          child: GNav(
+            gap: 8,
+            onTabChange: (index) {
+              _onItemTapped(index);
+            },
+            backgroundColor: Colors.black,
+            color: AppColors.whiteColor,
+            activeColor: AppColors.whiteColor,
+            tabBackgroundColor: Colors.grey.shade900,
+            padding: const EdgeInsets.all(8.0),
+            rippleColor: Colors.grey.shade800,
+            tabs: const [
+              GButton(
+                icon: Icons.home,
+                text: "Home",
+              ),
+              GButton(
+                icon: Icons.explore,
+                text: "Explore",
+              ),
+              GButton(
+                icon: CupertinoIcons.chart_bar_alt_fill,
+                text: "Rankers",
+              ),
+              GButton(
+                icon: Icons.settings,
+                text: "Setting",
+              ),
+            ],
           ),
         ),
-        body: SafeArea(
-            child: Column(
-          children: [
-            ElevatedButton(
-              child: Text("logout"),
-              onPressed: () {
-                AuthController.instance.signOut();
-              },
-            ),
-            Text("${AuthController.instance.auth.currentUser?.email}")
-          ],
-        )));
+      ),
+      body: SafeArea(
+        child: pages[_selectedIndex],
+      ),
+    );
   }
 }

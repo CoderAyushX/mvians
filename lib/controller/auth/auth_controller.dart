@@ -113,7 +113,7 @@ class AuthController extends GetxController {
     }
   }
 
-  //? reset password
+  //* reset password
 
   Future resetpass(String email) async {
     try {
