@@ -71,9 +71,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: SafeArea(
-        child: pages[_selectedIndex],
-      ),
+      body: pages[_selectedIndex],
     );
   }
 }
