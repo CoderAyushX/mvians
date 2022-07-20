@@ -96,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       child: BigText(
                         text: "Forgot password?",
-                        color: AppColors.redColor,
+                     color: AppColors.blueColor,
                       ),
                     ),
                   ),
@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: Dimensions.height45 * 1.25,
                       width: Dimensions.screenWidth - 10,
                       decoration: BoxDecoration(
-                          color: AppColors.redColor,
+                            color: AppColors.blueColor,
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius30)),
                       child: Obx(() {
@@ -172,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                               text: 'Register',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
-                                  color: AppColors.redColor),
+                                   color: AppColors.blueColor,),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () => Get.toNamed("/signin")),
                         ],
@@ -275,13 +275,13 @@ class _LoginPageState extends State<LoginPage> {
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-            color: AppColors.redColor,
+     color: AppColors.blueColor,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-            color: AppColors.redColor,
+           color: AppColors.blueColor,
           ),
         ),
         border: const UnderlineInputBorder(

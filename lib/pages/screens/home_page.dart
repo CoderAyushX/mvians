@@ -59,7 +59,7 @@ class MainHomePage extends StatelessWidget {
                     ),
                     height: Dimensions.height150 - Dimensions.height15,
                     decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: AppColors.lightDarkColor,
                       borderRadius: BorderRadius.circular(Dimensions.radius10),
                     ),
                     child: Row(
@@ -87,7 +87,7 @@ class MainHomePage extends StatelessWidget {
                                   "Read more",
                                   style: TextStyle(
                                       decoration: TextDecoration.underline,
-                                      color: AppColors.redColor),
+                                         color: AppColors.lightBlueColor,),
                                 ),
                               ),
                             ],
@@ -97,7 +97,7 @@ class MainHomePage extends StatelessWidget {
                         //? image
 
                         Image.network(
-                            "https://i.postimg.cc/T2JxRyyK/Back-to-school-pana.png")
+                            "https://i.postimg.cc/9fRpMSRf/Teaching-rafiki.png")
                       ],
                     ),
                   ),
@@ -130,7 +130,7 @@ class MainHomePage extends StatelessWidget {
                         name: "events",
                         icon: Icon(
                           Icons.event_available_rounded,
-                          color: AppColors.lightRedColor,
+                          color: AppColors.lightBlueColor,
                           size: Dimensions.iconSize16 * 1.8,
                         ),
                       ),
@@ -138,7 +138,7 @@ class MainHomePage extends StatelessWidget {
                         name: "schedule",
                         icon: Icon(
                           Icons.schedule_rounded,
-                          color: AppColors.lightRedColor,
+                          color: AppColors.lightBlueColor,
                           size: Dimensions.iconSize16 * 1.8,
                         ),
                       ),
@@ -146,7 +146,7 @@ class MainHomePage extends StatelessWidget {
                         name: "peoples",
                         icon: Icon(
                           Icons.people_alt_rounded,
-                          color: AppColors.lightRedColor,
+                          color: AppColors.lightBlueColor,
                           size: Dimensions.iconSize16 * 1.8,
                         ),
                       ),
@@ -154,7 +154,7 @@ class MainHomePage extends StatelessWidget {
                         name: "books",
                         icon: Icon(
                           Icons.menu_book_rounded,
-                          color: AppColors.lightRedColor,
+                          color: AppColors.lightBlueColor,
                           size: Dimensions.iconSize16 * 1.8,
                         ),
                       ),
@@ -162,7 +162,7 @@ class MainHomePage extends StatelessWidget {
                         name: "scholarship",
                         icon: Icon(
                           Icons.school_rounded,
-                          color: AppColors.lightRedColor,
+                          color: AppColors.lightBlueColor,
                           size: Dimensions.iconSize16 * 1.8,
                         ),
                       ),
@@ -170,7 +170,7 @@ class MainHomePage extends StatelessWidget {
                         name: "gallery",
                         icon: Icon(
                           Icons.photo_camera_rounded,
-                          color: AppColors.lightRedColor,
+                          color: AppColors.lightBlueColor,
                           size: Dimensions.iconSize16 * 1.8,
                         ),
                       ),
@@ -224,7 +224,7 @@ class MainHomePage extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       color: AppColors.black,
                                       border:
-                                          Border.all(color: AppColors.redColor),
+                                          Border.all(     color: AppColors.blueColor,),
                                       shape: BoxShape.circle),
                                 ),
                                 Positioned(
@@ -250,7 +250,7 @@ class MainHomePage extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(
                                           Dimensions.radius30 * 5),
-                                      color: AppColors.lightRedColor,
+                                      color: AppColors.lightBlueColor,
                                     ),
                                     height: Dimensions.height20 * 2,
                                     child: Row(
@@ -309,7 +309,7 @@ class TopButtonCards extends StatelessWidget {
       borderRadius: BorderRadius.circular(Dimensions.radius10),
       child: Ink(
         decoration: BoxDecoration(
-          color: AppColors.black,
+          color: AppColors.lightDarkColor,
           borderRadius: BorderRadius.circular(Dimensions.radius10),
         ),
         child: Column(

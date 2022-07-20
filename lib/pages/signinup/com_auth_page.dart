@@ -57,7 +57,7 @@ class ComAuthPage extends StatelessWidget {
                         const Spacer(),
                         //? email button
                         EmailContinueButtons(
-                          color: AppColors.redColor,
+                          color: AppColors.blueColor,
                           text: "Continue With Email",
                           textColor: AppColors.whiteColor,
                           icon: Icon(

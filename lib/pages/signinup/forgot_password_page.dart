@@ -92,7 +92,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       height: Dimensions.height45 * 1.25,
                       width: Dimensions.screenWidth - 10,
                       decoration: BoxDecoration(
-                          color: AppColors.redColor,
+                  color: AppColors.blueColor,
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius30)),
                       child: Obx(() {

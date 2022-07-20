@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -36,34 +36,39 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: AppColors.bgColor,
       //? bottam nav bar
       bottomNavigationBar: Container(
-        color: Colors.black,
+        color: AppColors.lightDarkColor,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
           child: GNav(
+            
             gap: 8,
             onTabChange: (index) {
               _onItemTapped(index);
             },
-            backgroundColor: Colors.black,
+            backgroundColor: AppColors.lightDarkColor,
             color: AppColors.whiteColor,
             activeColor: AppColors.whiteColor,
-            tabBackgroundColor: Colors.grey.shade900,
+            tabBackgroundColor: AppColors.bgColor,
             padding: const EdgeInsets.all(8.0),
             rippleColor: Colors.grey.shade800,
-            tabs: const [
+            tabs: [
               GButton(
+                   iconColor: AppColors.lightBlueColor,
                 icon: Icons.home,
                 text: "Home",
               ),
               GButton(
+                   iconColor: AppColors.lightBlueColor,
                 icon: Icons.explore,
                 text: "Explore",
               ),
               GButton(
+                   iconColor: AppColors.lightBlueColor,
                 icon: CupertinoIcons.chart_bar_alt_fill,
                 text: "Rankers",
               ),
               GButton(
+                iconColor: AppColors.lightBlueColor,
                 icon: Icons.settings,
                 text: "Setting",
               ),

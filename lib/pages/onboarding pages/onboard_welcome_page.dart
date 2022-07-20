@@ -54,7 +54,7 @@ class OnBoardingWelcome extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.redColor,
+                               color: AppColors.blueColor,
                           ),
                           children: [
                             TextSpan(
@@ -73,7 +73,7 @@ class OnBoardingWelcome extends StatelessWidget {
                     SmallText(
                       text:
                           "Keep Yourself \nupdated abouts What's going on school",
-                      color: AppColors.lightRedColor,
+                      color: AppColors.lightBlueColor,
                       size: 14,
                     ),
                     const Spacer(),
@@ -87,7 +87,7 @@ class OnBoardingWelcome extends StatelessWidget {
                           Get.toNamed("/comauth");
                         }),
                         style: ElevatedButton.styleFrom(
-                            primary: AppColors.redColor,
+                            primary: AppColors.blueColor,
                             textStyle: TextStyle(
                               fontSize: Dimensions.font26,
                               fontWeight: FontWeight.bold,

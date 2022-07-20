@@ -125,7 +125,7 @@ class _SignInPageState extends State<SignInPage> {
                       height: Dimensions.height45 * 1.25,
                       width: Dimensions.screenWidth - 10,
                       decoration: BoxDecoration(
-                          color: AppColors.redColor,
+                 color: AppColors.blueColor,
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius30)),
                       child: Obx(() {
@@ -180,7 +180,7 @@ class _SignInPageState extends State<SignInPage> {
                               text: 'Login',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
-                                  color: AppColors.redColor),
+                                   color: AppColors.blueColor,),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () => Get.offAllNamed("/login")),
                         ],
@@ -247,13 +247,13 @@ class _SignInPageState extends State<SignInPage> {
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-            color: AppColors.redColor,
+     color: AppColors.blueColor,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-            color: AppColors.redColor,
+     color: AppColors.blueColor,
           ),
         ),
         border: const UnderlineInputBorder(
@@ -317,13 +317,13 @@ class _SignInPageState extends State<SignInPage> {
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-            color: AppColors.redColor,
+       color: AppColors.blueColor,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-            color: AppColors.redColor,
+           color: AppColors.blueColor,
           ),
         ),
         border: const UnderlineInputBorder(
@@ -372,13 +372,13 @@ class _SignInPageState extends State<SignInPage> {
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-            color: AppColors.redColor,
+            color: AppColors.blueColor,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-            color: AppColors.redColor,
+     color: AppColors.blueColor,
           ),
         ),
         border: const UnderlineInputBorder(

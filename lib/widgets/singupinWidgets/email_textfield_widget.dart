@@ -48,13 +48,13 @@ class EmailTextField extends StatelessWidget {
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-            color: AppColors.redColor,
+            color: AppColors.blueColor,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-            color: AppColors.redColor,
+            color: AppColors.blueColor,
           ),
         ),
         border: const UnderlineInputBorder(
