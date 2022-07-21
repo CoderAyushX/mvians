@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mvians/utils/colors.dart';
 import 'package:mvians/utils/dimensions.dart';
 import 'package:mvians/widgets/bigtext.dart';
 import 'package:mvians/widgets/pages_widgets/home_page/appbar.dart';
+import 'package:mvians/widgets/pages_widgets/home_page/courses_widgets.dart';
+import 'package:mvians/widgets/pages_widgets/home_page/top_teachers.dart';
 
 class MainHomePage extends StatelessWidget {
   const MainHomePage({Key? key}) : super(key: key);
@@ -86,8 +87,9 @@ class MainHomePage extends StatelessWidget {
                                 child: Text(
                                   "Read more",
                                   style: TextStyle(
-                                      decoration: TextDecoration.underline,
-                                         color: AppColors.lightBlueColor,),
+                                    decoration: TextDecoration.underline,
+                                    color: AppColors.lightBlueColor,
+                                  ),
                                 ),
                               ),
                             ],
@@ -204,89 +206,35 @@ class MainHomePage extends StatelessWidget {
                   ),
 
                   //? teachers list
-          
+
                   SizedBox(
                     height: Dimensions.height150 * 1.1,
                     child: ListView.builder(
-                      itemCount: 1,
+                      itemCount: 2,
                       shrinkWrap: true,
                       physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (BuildContext context, int index) {
-                        return SizedBox(
-                          width: Dimensions.height150 * 1.1,
-                          child: Center(
-                            child: Stack(
-                              children: [
-                                Container(
-                                  width: Dimensions.height150,
-                                  height: Dimensions.height150,
-                                  decoration: BoxDecoration(
-                                      color: AppColors.black,
-                                      border:
-                                          Border.all(     color: AppColors.blueColor,),
-                                      shape: BoxShape.circle),
-                                ),
-                                Positioned(
-                                  top: 5,
-                                  bottom: 5,
-                                  left: 5,
-                                  right: 5,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      image: DecorationImage(
-                                          image: NetworkImage(
-                                              'https://i.postimg.cc/SKyt2Z1P/pijus.jpg'),
-                                          fit: BoxFit.cover),
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  bottom: 0,
-                                  right: 5,
-                                  left: 5,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(
-                                          Dimensions.radius30 * 5),
-                                      color: AppColors.lightBlueColor,
-                                    ),
-                                    height: Dimensions.height20 * 2,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        BigText(
-                                          text: "pijus sir",
-                                          fontWeight: FontWeight.w600,
-                                          color: AppColors.bgColor,
-                                        ),
-                                        SizedBox(
-                                          width: Dimensions.width10 / 2,
-                                        ),
-                                        Icon(
-                                          CupertinoIcons.checkmark_seal_fill,
-                                          color: Colors.blue,
-                                          size: Dimensions.iconSize16,
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
+                        return const TopTeacherWidgets();
                       },
                     ),
                   ),
 
                   SizedBox(
-                    height: Dimensions.height150,
-                  )
+                    height: Dimensions.height35,
+                  ),
+
+                  //? courses
+                  BigText(
+                    text: "Courses",
+                    size: Dimensions.font12 * 2,
+                    fontWeight: FontWeight.bold,
+                  ),
+                      SizedBox(
+                    height: Dimensions.height15,
+                  ),
+
+                  const CoursesWidgets()
                 ],
               ),
             )
@@ -297,6 +245,7 @@ class MainHomePage extends StatelessWidget {
   }
 }
 
+//* tab buttons
 class TopButtonCards extends StatelessWidget {
   const TopButtonCards({Key? key, required this.name, required this.icon})
       : super(key: key);

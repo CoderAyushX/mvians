@@ -9,10 +9,14 @@ class MyTheme {
         primarySwatch: Colors.blue,
         fontFamily: GoogleFonts.lato().fontFamily,
         //* text theme
-        textTheme: const TextTheme(bodyText2: TextStyle(color:Color(0xFFE5E5E5))),
+        textTheme: const TextTheme(
+          bodyText2: TextStyle(
+            color: Color(0xFFE5E5E5),
+          ),
+        ),
         //*appbar theme
         appBarTheme: const AppBarTheme(
-      color:  Color(0xFF161E35),
+            color: Color(0xFF161E35),
             elevation: 0.0,
             iconTheme: IconThemeData(color: Colors.white70),
             titleTextStyle: TextStyle(
