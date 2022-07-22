@@ -39,7 +39,6 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -49,8 +48,9 @@ class _SignInPageState extends State<SignInPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-               BackButtonForAuth(text: "Sign in", size: Dimensions.font16 * 2),
-             
+                  BackButtonForAuth(
+                      text: "Sign in", size: Dimensions.font16 * 2),
+
                   SizedBox(
                     height: Dimensions.height30,
                   ),
@@ -113,38 +113,36 @@ class _SignInPageState extends State<SignInPage> {
                   //? button
                   InkWell(
                     borderRadius: BorderRadius.circular(Dimensions.radius30),
-                    onTap: () async{
+                    onTap: () async {
                       if (_formKey.currentState!.validate()) {
                         AuthController.instance.register(
                             _textcontroller.text.trim(),
                             _passController.text.trim());
-                       
                       }
                     },
                     child: Ink(
                       height: Dimensions.height45 * 1.25,
                       width: Dimensions.screenWidth - 10,
                       decoration: BoxDecoration(
-                 color: AppColors.blueColor,
+                          color: AppColors.blueColor,
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius30)),
                       child: Obx(() {
-                          return Center(
-                            child: AuthController.instance.isNotLoding.value
-                                ? Text(
-                                    "Sign in",
-                                    style: TextStyle(
-                                        color: AppColors.whiteColor,
-                                        fontSize: Dimensions.font26,
-                                        fontWeight: FontWeight.bold),
-                                  )
-                                : Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.center,
-                                    children: [
+                        return Center(
+                          child: AuthController.instance.isNotLoding.value
+                              ? Text(
+                                  "Sign in",
+                                  style: TextStyle(
+                                      color: AppColors.whiteColor,
+                                      fontSize: Dimensions.font26,
+                                      fontWeight: FontWeight.bold),
+                                )
+                              : Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
                                       SizedBox(
-                                        height: Dimensions.height30 ,
-                                        width:Dimensions.height30,
+                                        height: Dimensions.height30,
+                                        width: Dimensions.height30,
                                         child: CircularProgressIndicator(
                                             color: AppColors.whiteColor),
                                       ),
@@ -158,8 +156,8 @@ class _SignInPageState extends State<SignInPage> {
                                         ),
                                       )
                                     ]),
-                          );
-                        }),
+                        );
+                      }),
                     ),
                   ),
 
@@ -179,8 +177,9 @@ class _SignInPageState extends State<SignInPage> {
                           TextSpan(
                               text: 'Login',
                               style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                   color: AppColors.blueColor,),
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.blueColor,
+                              ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () => Get.offAllNamed("/login")),
                         ],
@@ -247,13 +246,13 @@ class _SignInPageState extends State<SignInPage> {
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-     color: AppColors.blueColor,
+            color: AppColors.blueColor,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-     color: AppColors.blueColor,
+            color: AppColors.blueColor,
           ),
         ),
         border: const UnderlineInputBorder(
@@ -317,13 +316,13 @@ class _SignInPageState extends State<SignInPage> {
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-       color: AppColors.blueColor,
+            color: AppColors.blueColor,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-           color: AppColors.blueColor,
+            color: AppColors.blueColor,
           ),
         ),
         border: const UnderlineInputBorder(
@@ -378,7 +377,7 @@ class _SignInPageState extends State<SignInPage> {
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(Dimensions.radius15),
           borderSide: BorderSide(
-     color: AppColors.blueColor,
+            color: AppColors.blueColor,
           ),
         ),
         border: const UnderlineInputBorder(

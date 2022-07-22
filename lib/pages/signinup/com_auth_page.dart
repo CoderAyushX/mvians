@@ -13,7 +13,6 @@ class ComAuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgColor,
       body: SafeArea(
         //? to get full page width
         child: SizedBox(

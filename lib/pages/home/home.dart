@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:mvians/controller/home_page_cont/qoutes_model_cont.dart';
 import 'package:mvians/pages/screens/explore_page.dart';
 import 'package:mvians/pages/screens/home_page.dart';
 import 'package:mvians/pages/screens/rankers_page.dart';
@@ -16,6 +18,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final QoutesController _qoutesController = Get.put(QoutesController());
+
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -25,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List pages = [
-    const MainHomePage(),
+     MainHomePage(),
     const ExplorePage(),
     const RankerPage(),
     const SettingPage()
@@ -33,14 +37,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgColor,
       //? bottam nav bar
       bottomNavigationBar: Container(
         color: AppColors.lightDarkColor,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
           child: GNav(
-            
             gap: 8,
             onTabChange: (index) {
               _onItemTapped(index);
@@ -53,17 +55,17 @@ class _HomePageState extends State<HomePage> {
             rippleColor: Colors.grey.shade800,
             tabs: [
               GButton(
-                   iconColor: AppColors.lightBlueColor,
+                iconColor: AppColors.lightBlueColor,
                 icon: Icons.home,
                 text: "Home",
               ),
               GButton(
-                   iconColor: AppColors.lightBlueColor,
+                iconColor: AppColors.lightBlueColor,
                 icon: Icons.explore,
                 text: "Explore",
               ),
               GButton(
-                   iconColor: AppColors.lightBlueColor,
+                iconColor: AppColors.lightBlueColor,
                 icon: CupertinoIcons.chart_bar_alt_fill,
                 text: "Rankers",
               ),

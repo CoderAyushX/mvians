@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mvians/controller/home_page_cont/qoutes_model_cont.dart';
 import 'package:mvians/utils/colors.dart';
 import 'package:mvians/utils/dimensions.dart';
 import 'package:mvians/widgets/bigtext.dart';
 import 'package:mvians/widgets/pages_widgets/home_page/appbar.dart';
 import 'package:mvians/widgets/pages_widgets/home_page/courses_widgets.dart';
 import 'package:mvians/widgets/pages_widgets/home_page/top_teachers.dart';
+import 'package:mvians/widgets/smalltext.dart';
 
 class MainHomePage extends StatelessWidget {
-  const MainHomePage({Key? key}) : super(key: key);
+  MainHomePage({Key? key}) : super(key: key);
+
+  final QoutesController _qoutesController = Get.find();
 
   //? to greet student
   String greeting() {
@@ -230,16 +235,76 @@ class MainHomePage extends StatelessWidget {
                     size: Dimensions.font12 * 2,
                     fontWeight: FontWeight.bold,
                   ),
-                      SizedBox(
+                  SizedBox(
                     height: Dimensions.height15,
                   ),
 
-                  const CoursesWidgets()
+                  const CoursesWidgets(),
+
+                  SizedBox(
+                    height: Dimensions.height35,
+                  ),
+
+                  //? motivation
+                  BigText(
+                    text: "Today's motivation",
+                    size: Dimensions.font12 * 2,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  SizedBox(
+                    height: Dimensions.height15,
+                  ),
+
+                  qoutesWidget(),
                 ],
               ),
             )
           ],
         ),
+      ),
+    );
+  }
+
+
+//* qoutes widget
+  Widget qoutesWidget() {
+    return Container(
+      padding: EdgeInsets.symmetric(
+          vertical: Dimensions.height30, horizontal: Dimensions.width20),
+      height: Dimensions.height150 * 1,
+      decoration: BoxDecoration(
+        color: AppColors.lightDarkColor,
+        borderRadius: BorderRadius.circular(Dimensions.radius20),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black54,
+            blurRadius: 15.0,
+            offset: Offset(0.0, 0.75),
+          ),
+        ],
+      ),
+      child: Obx(
+        () {
+          return _qoutesController.isLoding.value
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Column(
+                  children: [
+                    BigText(
+                      text: _qoutesController.qoutesList[0].content,
+                      overflow: TextOverflow.visible,
+                    ),
+                    const Spacer(),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: SmallText(
+                          text: _qoutesController.qoutesList[0].author),
+                    ),
+                    const Spacer(),
+                  ],
+                );
+        },
       ),
     );
   }

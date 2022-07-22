@@ -32,13 +32,12 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
 
-            //? form 
+            //? form
             child: Form(
               key: _formKey,
               child: Column(
@@ -92,7 +91,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       height: Dimensions.height45 * 1.25,
                       width: Dimensions.screenWidth - 10,
                       decoration: BoxDecoration(
-                  color: AppColors.blueColor,
+                          color: AppColors.blueColor,
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius30)),
                       child: Obx(() {

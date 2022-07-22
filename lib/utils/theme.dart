@@ -5,6 +5,7 @@ class MyTheme {
   //* static function for app theme
   static ThemeData lightTheme(BuildContext context) {
     return ThemeData(
+        scaffoldBackgroundColor: const Color(0xFF080C25),
         //* primary theme
         primarySwatch: Colors.blue,
         fontFamily: GoogleFonts.lato().fontFamily,

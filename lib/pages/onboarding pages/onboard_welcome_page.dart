@@ -11,8 +11,6 @@ class OnBoardingWelcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //? bg color
-      backgroundColor: AppColors.bgColor,
       //? sized box to take full height
       body: SizedBox(
         height: double.maxFinite,

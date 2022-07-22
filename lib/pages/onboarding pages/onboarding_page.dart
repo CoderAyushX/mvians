@@ -35,8 +35,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //? bg color for the screen
-      backgroundColor: AppColors.bgColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
