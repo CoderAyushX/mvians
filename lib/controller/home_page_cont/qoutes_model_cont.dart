@@ -8,11 +8,11 @@ class QoutesController extends GetxController {
 
   @override
   void onInit() {
-    fetchProduct();
+    fetchData();
     super.onInit();
   }
 
-  void fetchProduct() async {
+  void fetchData() async {
     try {
       isLoding(true);
       var data = await RemoteServices.fetchQoutes(

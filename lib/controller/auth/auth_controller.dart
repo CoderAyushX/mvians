@@ -42,10 +42,10 @@ class AuthController extends GetxController {
 
   _initialScreenGoogle(GoogleSignInAccount? googleSignInAccount) {
     if (googleSignInAccount == null) {
-      // if the user is not found then the user is navigated to the Register Screen
+      //? if the user is not found then the user is navigated to the Register Screen
       Get.offAllNamed("/onboard");
     } else {
-      // if the user exists and logged in the the user is navigated to the Home Screen
+      //? if the user exists and logged in the the user is navigated to the Home Screen
       Get.offAllNamed("/home");
     }
   }

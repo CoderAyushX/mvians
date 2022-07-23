@@ -215,7 +215,7 @@ class MainHomePage extends StatelessWidget {
                   SizedBox(
                     height: Dimensions.height150 * 1.1,
                     child: ListView.builder(
-                      itemCount: 2,
+                      itemCount: 3,
                       shrinkWrap: true,
                       physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
@@ -265,13 +265,12 @@ class MainHomePage extends StatelessWidget {
     );
   }
 
-
 //* qoutes widget
   Widget qoutesWidget() {
     return Container(
       padding: EdgeInsets.symmetric(
-          vertical: Dimensions.height30, horizontal: Dimensions.width20),
-      height: Dimensions.height150 * 1,
+          vertical: Dimensions.height45 / 2, horizontal: Dimensions.width20),
+      height: Dimensions.height150,
       decoration: BoxDecoration(
         color: AppColors.lightDarkColor,
         borderRadius: BorderRadius.circular(Dimensions.radius20),
