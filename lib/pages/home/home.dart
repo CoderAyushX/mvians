@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   final List pages = [
-     MainHomePage(),
+    MainHomePage(),
     const ExplorePage(),
     const RankerPage(),
     const SettingPage()
