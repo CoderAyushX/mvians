@@ -7,7 +7,6 @@ import 'package:mvians/pages/screens/explore_page.dart';
 import 'package:mvians/pages/screens/home_page.dart';
 import 'package:mvians/pages/screens/rankers_page.dart';
 import 'package:mvians/pages/screens/setting_page.dart';
-
 import 'package:mvians/utils/colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,7 +29,7 @@ class _HomePageState extends State<HomePage> {
 
   final List pages = [
     MainHomePage(),
-    const ExplorePage(),
+ ExplorePage(),
     const RankerPage(),
     const SettingPage()
   ];

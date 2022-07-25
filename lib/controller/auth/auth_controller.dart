@@ -104,7 +104,6 @@ class AuthController extends GetxController {
         await auth.signInWithCredential(credential).catchError((onErr) => {});
       }
     } catch (e) {
-      print(e);
       Get.snackbar("Failed to Login", "Something went wrong!",
           colorText: Colors.white,
           isDismissible: true,

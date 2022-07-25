@@ -56,7 +56,6 @@ class RankerPage extends StatelessWidget {
     );
   }
 
-
 //* header
   Widget header() {
     return Container(
@@ -105,7 +104,6 @@ class RankerPage extends StatelessWidget {
     );
   }
 }
-
 
 //* footer
 Widget footer() {
